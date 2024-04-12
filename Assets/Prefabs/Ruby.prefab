@@ -176,8 +176,12 @@ MonoBehaviour:
   speed: 3
   maxHealth: 5
   projectilePrefab: {fileID: 2056114711882607166, guid: cd12e8b5015713f4bb70193d69e8623d, type: 3}
+  winUI: {fileID: 0}
+  loseUI: {fileID: 0}
   throwSound: {fileID: 8300000, guid: b2edfd40873655249ba0e01a5cf705be, type: 3}
   hitSound: {fileID: 8300000, guid: 9b1bb1f450b7d444fa4a8019d13519a7, type: 3}
+  winSound: {fileID: 8300000, guid: 2c130f0bbc296dd48aaf70c0ec0f4141, type: 3}
+  loseSound: {fileID: 8300000, guid: 30b899019d0a64140ac984fa7b9e307a, type: 3}
   timeInvincible: 2
 --- !u!95 &6963037388553030163
 Animator:

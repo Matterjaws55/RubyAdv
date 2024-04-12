@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using TMPro.EditorUtilities;
 
 public class RubyController : MonoBehaviour
 {
@@ -10,12 +13,19 @@ public class RubyController : MonoBehaviour
     public int maxHealth = 5;
 
     public GameObject projectilePrefab;
+    public GameObject winUI;
+    public GameObject loseUI;
 
     public AudioClip throwSound;
     public AudioClip hitSound;
+    public AudioClip winSound;
+    public AudioClip loseSound;
 
     public int health { get { return currentHealth; } }
     int currentHealth;
+
+    public int score;
+    public TMP_Text scoreText;
 
     public float timeInvincible = 2.0f;
     bool isInvincible;
@@ -30,9 +40,10 @@ public class RubyController : MonoBehaviour
 
     AudioSource audioSource;
 
-    // Start is called before the first frame update
+    bool hasLost;
+
     void Start()
-    {
+    {        
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
@@ -41,7 +52,7 @@ public class RubyController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
@@ -69,6 +80,12 @@ public class RubyController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             Launch();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if(hasLost)
+                Restart();
         }
 
         if (Input.GetKeyDown(KeyCode.X))
@@ -110,6 +127,19 @@ public class RubyController : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
 
         UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
+        
+        if(currentHealth <= 0)
+        {
+            Lose();
+        }
+    }
+
+    public void Score(int scoreAmount)
+    {
+        //scoreText.text = "Fixed Robots: " + score.ToString();
+        score += scoreAmount;
+        if (score == 2)
+            Win();
     }
 
     void Launch()
@@ -127,5 +157,23 @@ public class RubyController : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
+    }
+
+    void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void Win()
+    {
+        speed = 0f;
+        winUI.SetActive(true);
+        PlaySound(winSound);
+    }
+    public void Lose()
+    {
+        loseUI.SetActive(true);
+        PlaySound(loseSound);
+        Time.timeScale = 0f;
+        hasLost = true;
     }
 }
