@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4833848634904137425}
   m_Layer: 6
   m_Name: Ruby
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,6 +182,9 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: 9b1bb1f450b7d444fa4a8019d13519a7, type: 3}
   winSound: {fileID: 8300000, guid: 2c130f0bbc296dd48aaf70c0ec0f4141, type: 3}
   loseSound: {fileID: 8300000, guid: 30b899019d0a64140ac984fa7b9e307a, type: 3}
+  DamageEffectPrefab: {fileID: 264391860903803994, guid: c5c6c829a245ab44fa29f0aad6c8af49, type: 3}
+  score: 0
+  scoreText: {fileID: 0}
   timeInvincible: 2
 --- !u!95 &6963037388553030163
 Animator:

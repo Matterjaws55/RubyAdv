@@ -118,7 +118,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.029838443, y: -0.011290312}
+  m_Offset: {x: -0.02929914, y: -0.011290312}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -129,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5221412, y: 0.4947214}
+  m_Size: {x: 0.5232198, y: 0.4947214}
   m_EdgeRadius: 0
 --- !u!114 &8479955930292710934
 MonoBehaviour:
@@ -143,4 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d474e589cb8e7aa46b2bf40719b9f260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HealthEffectPrefab: {fileID: 923790470029755937, guid: 8f317b7996d66b9478bcfc962ee21473, type: 3}
   collectedClip: {fileID: 8300000, guid: af5f8b64e3f58f24c87ff8f789b04f6c, type: 3}

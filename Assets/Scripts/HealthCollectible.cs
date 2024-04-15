@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HealthCollectible : MonoBehaviour
 {
+    public GameObject HealthEffectPrefab;
+
     public AudioClip collectedClip;
 
     void OnTriggerEnter2D(Collider2D other)
@@ -16,6 +18,8 @@ public class HealthCollectible : MonoBehaviour
             {
                 controller.ChangeHealth(1);
                 Destroy(gameObject);
+
+                GameObject HealthEffectObject = Instantiate(HealthEffectPrefab, transform.position, Quaternion.identity);
 
                 controller.PlaySound(collectedClip);
             }

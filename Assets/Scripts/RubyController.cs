@@ -24,7 +24,9 @@ public class RubyController : MonoBehaviour
     public int health { get { return currentHealth; } }
     int currentHealth;
 
-    public int score;
+    public GameObject DamageEffectPrefab;
+
+    public float score;
     public TMP_Text scoreText;
 
     public float timeInvincible = 2.0f;
@@ -47,7 +49,7 @@ public class RubyController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        currentHealth = maxHealth;
+        currentHealth = maxHealth;        
 
         audioSource = GetComponent<AudioSource>();
     }
@@ -121,6 +123,8 @@ public class RubyController : MonoBehaviour
             isInvincible = true;
             invincibleTimer = timeInvincible;
 
+            GameObject DamageEffectObject = Instantiate(DamageEffectPrefab, transform.position, Quaternion.identity);
+
             PlaySound(hitSound);
         }
 
@@ -134,10 +138,10 @@ public class RubyController : MonoBehaviour
         }
     }
 
-    public void Score(int scoreAmount)
-    {
-        //scoreText.text = "Fixed Robots: " + score.ToString();
+    public void Score(float scoreAmount)
+    {        
         score += scoreAmount;
+        scoreText.text = "Robots Fixed: " + score.ToString();
         if (score == 2)
             Win();
     }
