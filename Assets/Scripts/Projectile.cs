@@ -32,6 +32,12 @@ public class Projectile : MonoBehaviour
             e.Fix();
         }
 
+        CrateDestroyer c = other.collider.GetComponent<CrateDestroyer>();
+        if (c != null)
+        {
+            c.Hit();
+        }
+
         Destroy(gameObject);
     }
 }

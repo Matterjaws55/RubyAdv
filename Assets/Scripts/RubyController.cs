@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
-using TMPro.EditorUtilities;
 
 public class RubyController : MonoBehaviour
 {
